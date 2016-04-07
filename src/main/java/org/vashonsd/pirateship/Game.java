@@ -20,6 +20,7 @@ public class Game {
     	player = new Player("Ronaldo");
     	player.setCurrentLocation(thisWorld.getStartingLocation());
     	
+    	
     	reader = new UserInput();
     	writer = new ConsoleOut();
 	}
@@ -38,11 +39,13 @@ public class Game {
     public String getCommand() throws IOException {
     	while(true) {
     		String command = reader.read();
-    		if (command.equalsIgnoreCase(quitWord)) { quitGracefully(); };
-    		if (player.getCurrentLocation().commandAvailable(command)) {
+    		if (command.equalsIgnoreCase(quitWord)) { quitGracefully(); }
+    		else if (command.equals(" ")) {return command;}
+    		if (player.getCurrentLocation().commandAvailable(command)) 
+    		{
     			return command;
     		}
-		writer.write("---Error 314---"
+    	writer.write("---Error 314---"
     		     + "\n" + center(command) + "\n" + 
 					 "place not found");
     	}

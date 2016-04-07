@@ -12,9 +12,12 @@ import java.io.*;
 public class UserInput implements StringRead{
 	
 	public String read() throws IOException {
-    	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    	String command = in.readLine();
-    	return command;
+//    	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+//    	String command = in.readLine();
+//    	return command;
+		XMPPio c = new XMPPio();
+		c.Run();
+		return c.read();
     }
 	
 	public void StringReader() {
