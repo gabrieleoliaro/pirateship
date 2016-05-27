@@ -37,7 +37,7 @@ public class MinigameTwitter implements TextMinigame {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Could not parse the username. Printing the tweets of Vashon Island High School");
+			System.out.println("Could not parse the username. Printing the tweets of Vashon Island High School\n");
 		}
 		
 		
@@ -45,7 +45,7 @@ public class MinigameTwitter implements TextMinigame {
 		{
 			if(username.charAt(i) == ' ')
 			{
-				System.out.println("could not parse the username. Printing the tweets of Vashon Island High School...");
+				System.out.println("Could not parse the username. Printing the tweets of Vashon Island High School...\n");
 				username = "VHSPirates";
 			}
 		}

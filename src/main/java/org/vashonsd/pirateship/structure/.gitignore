@@ -2,3 +2,5 @@
 /Route.class
 /World.class
 /WorldBuilder.class
+/DatabaseParser.class
+/DatabaseWriter.class
