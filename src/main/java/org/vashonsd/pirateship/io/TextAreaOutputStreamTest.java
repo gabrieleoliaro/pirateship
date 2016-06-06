@@ -19,18 +19,7 @@ public class TextAreaOutputStreamTest extends JPanel {
             JScrollPane.HORIZONTAL_SCROLLBAR_NEVER));
       System.setOut(new PrintStream(taOutputStream));
 
-      int timerDelay = 1000;
-      new Timer(timerDelay , new ActionListener() {
-         int count = 0;
-         @Override
-         public void actionPerformed(ActionEvent arg0) {
-
-            // though this outputs via System.out.println, it actually displays
-            // in the JTextArea:
-            System.out.println("Count is now: " + count + " seconds");
-            count++;
-         }
-      }).start();
+      
    }
 
    private static void createAndShowGui() {
