@@ -24,23 +24,6 @@ public class GUI extends JFrame {
 	private JTextField inputTextField;
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
 	 * Create the frame.
 	 */
 	public GUI() {
@@ -113,5 +96,10 @@ public class GUI extends JFrame {
 	public synchronized void setTextConsole(String text)
 	{
 		toPrint = "" + text;
+	}
+	
+	public synchronized JTextField getInputTextField()
+	{
+		return inputTextField;
 	}
 }

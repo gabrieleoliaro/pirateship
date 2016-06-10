@@ -22,8 +22,11 @@ public class App
     	
     	
     	AdvancedOutputStream output = new AdvancedOutputStream();
-    	PrintStream stdout = System.out;
     	System.setOut(new PrintStream(output));
+    	AdvancedInputStream input = new AdvancedInputStream(gui.getInputTextField());
+    	System.setIn(input);
+    	
+    	//PrintStream stdout = System.out;
     	//System.setOut(stdout);
     	
     	Thread t1 = new Thread(new Runnable() 
