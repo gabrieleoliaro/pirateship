@@ -6,16 +6,22 @@ import java.io.OutputStream;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
-public class TextAreaOutputStream extends OutputStream {
+public class AdvancedOutputStream extends OutputStream {
 
-   private final JTextArea textArea;
+   private volatile String toPrint;
    private final StringBuilder sb = new StringBuilder();
-   private String title;
+   
 
-   public TextAreaOutputStream(final JTextArea textArea, String title) {
-      this.textArea = textArea;
-      this.title = title;
-      sb.append(title + "> ");
+   public AdvancedOutputStream() {
+      
+	toPrint = "";   
+   }
+   
+   public String getToPrint()
+   {
+	   String toPrintTemp = toPrint;
+	   toPrint = "";
+	   return toPrintTemp;
    }
 
    @Override
@@ -28,7 +34,7 @@ public class TextAreaOutputStream extends OutputStream {
 
    @Override
    public void write(int b) throws IOException {
-
+	   
       if (b == '\r')
          return;
 
@@ -36,11 +42,11 @@ public class TextAreaOutputStream extends OutputStream {
          final String text = sb.toString() + "\n";
          SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-               textArea.append(text);
+               toPrint += text;
             }
          });
          sb.setLength(0);
-         sb.append(title + "> ");
+         
          return;
       }
 

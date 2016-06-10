@@ -1,6 +1,7 @@
 package org.vashonsd.pirateship;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.HashMap;
 
 import org.vashonsd.pirateship.interactions.Player;
@@ -26,6 +27,7 @@ public class Game {
 	public Game(String world) throws IOException {
 		super();
 		
+		
 		quitWord = "exit";
 
     	//thisWorld = WorldBuilder.makeWorldByFile(world);
@@ -38,6 +40,8 @@ public class Game {
 		
     	reader = new UserInput();
     	writer = new ConsoleOut();
+    	
+    	
 	}
 	
 	public void Run() throws IOException {

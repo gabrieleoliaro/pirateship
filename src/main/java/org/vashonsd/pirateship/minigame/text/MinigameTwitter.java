@@ -79,10 +79,16 @@ public class MinigameTwitter implements TextMinigame {
 			e.printStackTrace();
 			System.out.println("Couldn't find any tweet");
 		}
+		if(username.equals("\n"))
+		{
+			username = "VHSPirates";
+		}
 
 	    for (Status status : statuses2) {
 	        toReturn +=("@" + status.getUser().getScreenName() + " - " + status.getText() + "\n");
 	    }
+	    
+	    System.out.println(username);
 		return toReturn;
 	}
 
