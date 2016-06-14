@@ -1,19 +1,19 @@
 package org.vashonsd.pirateship;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class GUI extends JFrame {
 
@@ -23,10 +23,30 @@ public class GUI extends JFrame {
 	private JLabel lblVhsPirateship;
 	private JTextField inputTextField;
 
+	
+	
+	private Queue<String> input;
+	
+	public void addInput(String input)
+	{
+		this.input.add(input);
+	}
+	
+	public Queue<String> getInput()
+	{
+		Queue<String> toReturn = new LinkedList<String>();
+		toReturn = input;
+		input.clear();
+		return toReturn;
+	}
+	
+	
 	/**
 	 * Create the frame.
 	 */
 	public GUI() {
+		input = new LinkedList<String>();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 817, 479);
 		contentPane = new JPanel();
@@ -39,6 +59,7 @@ public class GUI extends JFrame {
 		contentPane.add(scrollPane);
 		
 		outputTextArea = new JTextArea();
+		outputTextArea.setEditable(false);
 		scrollPane.setViewportView(outputTextArea);
 		
 		lblVhsPirateship = new JLabel("VHS PirateShip");
@@ -54,6 +75,8 @@ public class GUI extends JFrame {
 		JButton btnNewButton = new JButton("Send");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				addInput(inputTextField.getText());
+				inputTextField.setText("");
 			}
 		});
 		btnNewButton.setBounds(692, 378, 99, 37);
